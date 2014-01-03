@@ -22,7 +22,7 @@ Link ST for command-line calls:
 
 ### Set SublimeText as your default editor
 
-Open ~/.bashrc or ~/.zshrc
+Open `~/.bashrc` or `~/.zshrc`
 
     export EDITOR='subl -w'
 
