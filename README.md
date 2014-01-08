@@ -95,7 +95,13 @@ Algunos atajos prácticos que van a poder utilizar después de ésto:
 
 #### Gitflow
 
-Flujo de trabajo sujerido para utilizar git:
+Flujo de trabajo sujerido para utilizar git.
+
+Remember:
+
+* **NO HACER REESCRIBIR EL HISTÓRIAL PÚBLICO**
+* **NO HACER `amend` DE COMMITS PUSHEADOS**
+* **NO HACER `rebase` DE COMMITS PUSHEADOS**
 
 ##### Crear un topic branch 
 
