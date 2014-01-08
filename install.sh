@@ -9,6 +9,8 @@ username=uname
 email=uname@email.com
 
 clear
+# backup existing .gitconfig if any
+[[ -f $HOME/.gitconfig ]] && cp $HOME/.gitconfig $HOME/gitconfig.bak
 echo 'Copying git preferences'
 cp -v gitconfig $HOME/.gitconfig
 
