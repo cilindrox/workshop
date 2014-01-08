@@ -10,7 +10,7 @@ Instrucciones para instalar y configurar la última versión estable de git.
 
 Para instalar la última versión de git es necesario tener [homebrew][1] primero. Luego, basta con abrir un terminal y ejecutar lo siguiente:
 
-    brew install git
+    brew update && brew install git
 
 Podemos verificar que contamos con la última versión ejecutando lo siguiente:
 
@@ -99,7 +99,7 @@ Flujo de trabajo sujerido para utilizar git.
 
 Remember:
 
-* **NO HACER REESCRIBIR EL HISTÓRIAL PÚBLICO**
+* **NO REESCRIBIR EL HISTORIAL PÚBLICO**
 * **NO HACER `amend` DE COMMITS PUSHEADOS**
 * **NO HACER `rebase` DE COMMITS PUSHEADOS**
 
