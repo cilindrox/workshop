@@ -193,19 +193,28 @@ Editar `~/.bashrc` - o `~/.zshrc` si utilizan zsh - y agregar la siguiente líne
 
 Alternativamente, pueden ejecutar la línea en el terminal para contar con una solución *temporal*.
 
+### Plugins
+
+Si están utilizando [**Package Control**][3] con ST, se recomiendan los siguientes plugins:
+
+* [GitGutter][4]
+* [Git][5]
 
 ## Homework
 
 ![branches](homework.png)
 
-Generar un histórico lineal en el [repo de ejemplo][3] de @vierja para ello, deberían:
+Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, deberían:
 
-* Hacer un **[fork del repo][4]** 
+* Hacer un **[fork del repo][7]** 
 * Corregir el histórico para lograr un grafo lineal (utilizar `rebase`, `merge` y `commit` según sea necesario) 
-* Una vez que cuenten con el grafo lineal, **[hacer un pull request][5]** para proponer una respuesta al problema
+* Una vez que cuenten con el grafo lineal, **[hacer un pull request][8]** para proponer una respuesta al problema
 
 [1]: http://brew.sh
 [2]: https://github.com/gfestari/dotfiles/blob/master/prefs/gitconfig
-[3]: https://github.com/vierja/workshop.git
-[4]: https://help.github.com/articles/fork-a-repo
-[5]: https://help.github.com/articles/using-pull-requests#initiating-the-pull-request
+[3]: https://sublime.wbond.net/installation#st3
+[4]: https://sublime.wbond.net/packages/GitGutter
+[5]: https://sublime.wbond.net/packages/Git
+[6]: https://github.com/vierja/workshop.git
+[7]: https://help.github.com/articles/fork-a-repo
+[8]: https://help.github.com/articles/using-pull-requests#initiating-the-pull-request
