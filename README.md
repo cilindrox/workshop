@@ -115,6 +115,24 @@ Una vez hechos los cambios en `topic-branch`, podemos actualizar `develop` con l
 
     git checkout develop
     git pull --rebase origin develop
+    
+Alternativamente, podemos hacer un *forward-merge*:
+
+    git pull --ff-only
+
+E incorporar los cambios en upstream sin reescribir el histórico. 
+
+##### Merge vs Rebase
+
+Cuándo conviene hacer un `rebase`?
+
+- Necesitamos re-aplicar nuestros cambios sobre los cambios entrantes (upstream)
+- El historial se mantiene más limpio
+- Muchas veces es más sencillo no hacer `merge` de los cambios en upstream
+- Los changesets más pequeños son más sencillos de visualizar
+
+Conviene hacer un `merge --ff-only` cuando estamos lidiando con cambios permanentes que aplican a largo plazo.
+
 
 ##### Replicar cambios upstream en branches locales
 
@@ -210,6 +228,14 @@ Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, de
 * Corregir el histórico para lograr un grafo lineal (utilizar `rebase`, `merge` y `commit` según sea necesario) 
 * Una vez que cuenten con el grafo lineal, **[hacer un pull request][8]** para proponer una respuesta al problema
 
+## Resources
+
+* [Pro-git][9] (libro)
+* [Git blog][10]
+* [Git cheatsheet][11]
+* [Git - the simple guide][12]
+
+
 [1]: http://brew.sh
 [2]: https://github.com/gfestari/dotfiles/blob/master/prefs/gitconfig
 [3]: https://sublime.wbond.net/installation#st3
@@ -218,3 +244,7 @@ Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, de
 [6]: https://github.com/vierja/workshop.git
 [7]: https://help.github.com/articles/fork-a-repo
 [8]: https://help.github.com/articles/using-pull-requests#initiating-the-pull-request
+[9]: http://git-scm.com/book
+[10]: http://git-scm.com/blog
+[11]: http://www.ndpsoftware.com/git-cheatsheet.html
+[12]: http://rogerdudler.github.io/git-guide/
