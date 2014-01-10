@@ -39,7 +39,7 @@ Configuración con algunos tweaks prácticos para mejorar el gitflow.
 
 La idea es que tomen prestado algunas de las configuraciones y aliases para hacer que el trabajo desde el terminal sea más sencillo.
 
-#### Utilizar el script
+### Utilizar el script
 
 El repo cuenta con un script que automatiza la copia del archivo de configuración de git. Para utilizarlo, basta con clonar el repo:
 
@@ -57,7 +57,7 @@ Guardar los cambios al script, y ejecutarlo de la siguiente manera:
 
 Y listo.
 
-#### Aliases
+### Aliases
 
 Algunos atajos prácticos que van a poder utilizar después de ésto:
 <table>
@@ -93,7 +93,7 @@ Algunos atajos prácticos que van a poder utilizar después de ésto:
 </tr>
 </table>
 
-#### Gitflow
+## Gitflow
 
 Flujo de trabajo sujerido para utilizar git.
 
@@ -103,13 +103,13 @@ Remember:
 * **NO HACER `amend` DE COMMITS PUSHEADOS**
 * **NO HACER `rebase` DE COMMITS PUSHEADOS**
 
-##### Crear un topic branch 
+### Crear un topic branch 
 
 Crea y cambia nuestra ref a un branch llamado `topic-branch`:
 
     git checkout -b topic-branch 
 
-##### Actualizar HEAD con cambios upstream
+### Actualizar HEAD con cambios upstream
 
 Una vez hechos los cambios en `topic-branch`, podemos actualizar `develop` con los cambios de upstream:
 
@@ -122,7 +122,7 @@ Alternativamente, podemos hacer un *forward-merge*:
 
 E incorporar los cambios en upstream sin reescribir el histórico. 
 
-##### Merge vs Rebase
+### Merge vs Rebase
 
 Cuándo conviene hacer un `rebase`?
 
@@ -134,7 +134,7 @@ Cuándo conviene hacer un `rebase`?
 Conviene hacer un `merge --ff-only` cuando estamos lidiando con cambios permanentes que aplican a largo plazo.
 
 
-##### Replicar cambios upstream en branches locales
+### Replicar cambios upstream en branches locales
 
 Con la ref al día de lo que sucede upstream, cambiamos a nuestro `topic-branch` para actualizarlo con los cambios que sucedieron en `develop`:
 
@@ -143,7 +143,7 @@ Con la ref al día de lo que sucede upstream, cambiamos a nuestro `topic-branch`
 
 Con los cambios de `develop` replicados en nuestro `topic-branch` podemos continuar trabajando.
 
-##### Merge de branches locales
+### Merge de branches locales
 
 Una vez completa la funcionalidad, volvemos a develop
 
@@ -154,7 +154,7 @@ Y subimos los cambios al branch `develop` en upstream de la siguiente manera:
     
     git push origin develop
 
-##### Eliminar branches locales
+### Eliminar branches locales
 
 Finalmente, eliminamos el `topic-branch` que generamos localmente:
 
@@ -165,7 +165,7 @@ Alternativamente, podemos utilizar el flag `-D` para eliminar un branch que no f
     git checkout -D topic-branch
 
 
-##### Eliminar branches remotos
+### Eliminar branches remotos
 
 Para eliminar un branch remoto compartido en el repo upstream, basta con ejecutar lo siguiente:
 
@@ -174,7 +174,7 @@ Para eliminar un branch remoto compartido en el repo upstream, basta con ejecuta
 **CUIDADO** con los branches públicos compartidos que aún no han sido mergeados en `develop`.
 
 
-##### Crear nuevos branches remotos
+### Crear nuevos branches remotos
 
 Muchas veces, interesa crear y compartir nuevos branches con el resto del equipo. 
 
@@ -182,13 +182,43 @@ De la siguiente manera, empujamos nuestro branch llamado `local-branch` a un rem
 
     git push -u origin local_branch:remote_branch
 
-##### Conectar branches upstream
+### Conectar branches upstream
 
 Para crear y conectar un branch local con uno existente upstream, basta con ejecutar la siguiente línea:
 
     git checkout -b test origin/test
 
 Esto crea y conecta el branch `test` con el remoto existente en `origin/test`
+
+### Hotfixes
+
+Aplicamos el hotfix a partir de un branch `hotfix` que deriva de `master`:
+
+    git checkout -b hotfix
+    # implementar hotfix
+    git checkout master
+    git merge hotfix
+
+Una vez implementado y probado el cambio en producción,  necesitamos replicar los cambios en `develop`.
+
+Para ello, revisamos el histórico para obtener el id del commit que vamos a replicar:
+
+    git checkout master
+    git pull --ff-only
+    git log --color --graph --pretty --abbrev-commit
+
+Esto nos proporciona el siguiente tree:
+
+    * 7a9b386 gfestari: Add ST git packages - (2 days ago)
+    * 592198d gfestari: Add warnings - (2 days ago)
+
+Nos interesa realizar un backport de `592198d` en `develop`. Para esto vamos a ejecutar un `cherry-pick`
+sobre el commit:
+
+    git checkout develop
+    git cherry-pick 592198d
+
+De esta manera, git re-aplica los mismos cambios sobre `develop`, sin forzar merges o integraciones innecesarias. 
 
 ## SublimeText
 
