@@ -17,7 +17,7 @@ Podemos verificar que contamos con la última versión ejecutando lo siguiente:
     git --version
     git version 1.8.5.2
 
-Cualquier cosa por encima de `1.8.5` quiere decir que no estamos utilizando el binario provisto por defecto en OS X. 
+Cualquier cosa por encima de `1.8.5` quiere decir que no estamos utilizando el binario provisto por defecto en OS X.
 
 ### Configuración
 
@@ -103,24 +103,24 @@ Remember:
 * **NO HACER `amend` DE COMMITS PUSHEADOS**
 * **NO HACER `rebase` DE COMMITS PUSHEADOS**
 
-### Crear un topic branch 
+### Crear un topic branch
 
 Crea y cambia nuestra ref a un branch llamado `topic-branch`:
 
-    git checkout -b topic-branch 
+    git checkout -b topic-branch
 
 ### Actualizar HEAD con cambios upstream
 
 Una vez hechos los cambios en `topic-branch`, podemos actualizar `develop` con los cambios de upstream:
 
-    git checkout develop
+    # [opcional] git checkout develop
     git pull --rebase origin develop
-    
+
 Alternativamente, podemos hacer un *forward-merge*:
 
     git pull --ff-only
 
-E incorporar los cambios en upstream sin reescribir el histórico. 
+E incorporar los cambios en upstream sin reescribir el histórico.
 
 ### Merge vs Rebase
 
@@ -149,9 +149,14 @@ Una vez completa la funcionalidad, volvemos a develop
 
     git checkout develop
     git merge feature-a
-    
+
+Como alternativa al rebase de develop (punto anterior), podemos hacer directamente un rebase de `feature-a` en `develop`:
+
+    git checkout develop
+    git rebase -i feature-a
+
 Y subimos los cambios al branch `develop` en upstream de la siguiente manera:
-    
+
     git push origin develop
 
 ### Eliminar branches locales
@@ -176,7 +181,7 @@ Para eliminar un branch remoto compartido en el repo upstream, basta con ejecuta
 
 ### Crear nuevos branches remotos
 
-Muchas veces, interesa crear y compartir nuevos branches con el resto del equipo. 
+Muchas veces, interesa crear y compartir nuevos branches con el resto del equipo.
 
 De la siguiente manera, empujamos nuestro branch llamado `local-branch` a un remoto, bajo el nombre `remote-branch`:
 
@@ -218,13 +223,13 @@ sobre el commit:
     git checkout develop
     git cherry-pick 592198d
 
-De esta manera, git re-aplica los mismos cambios sobre `develop`, sin forzar merges o integraciones innecesarias. 
+De esta manera, git re-aplica los mismos cambios sobre `develop`, sin forzar merges o integraciones innecesarias.
 
 ## SublimeText
 
 Configuración de SublimeText 3 para utilizar desde la línea de comando y como `$EDITOR` por defecto del sistema.
 
-### Command-line tools 
+### Command-line tools
 
 Esto permite utilizar el comando `subl` desde el terminal para invocar a SublimeText.
 
@@ -254,8 +259,8 @@ Si están utilizando [**Package Control**][3] con ST, se recomiendan los siguien
 
 Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, deberían:
 
-* Hacer un **[fork del repo][7]** 
-* Corregir el histórico para lograr un grafo lineal (utilizar `rebase`, `merge` y `commit` según sea necesario) 
+* Hacer un **[fork del repo][7]**
+* Corregir el histórico para lograr un grafo lineal (utilizar `rebase`, `merge` y `commit` según sea necesario)
 * Una vez que cuenten con el grafo lineal, **[hacer un pull request][8]** para proponer una respuesta al problema
 
 ## Resources
