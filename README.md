@@ -25,7 +25,7 @@ Para setear el username y password de forma global:
 
     git config --global user.name gfestari
 
-    git config --global user.email gaston.festari@mercadolibre.com
+    git config --global user.email gf@email.com
 
 Reemplazar con las credenciales apropiadas ;)
 
