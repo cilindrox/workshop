@@ -269,7 +269,7 @@ Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, de
 * [Git blog][10]
 * [Git cheatsheet][11]
 * [Git - the simple guide][12]
-
+* [Merge or Rebase][13]
 
 [1]: http://brew.sh
 [2]: https://github.com/gfestari/dotfiles/blob/master/prefs/gitconfig
@@ -283,3 +283,4 @@ Generar un histórico lineal en el [repo de ejemplo][6] de @vierja para ello, de
 [10]: http://git-scm.com/blog
 [11]: http://www.ndpsoftware.com/git-cheatsheet.html
 [12]: http://rogerdudler.github.io/git-guide/
+[13]: http://blog.sourcetreeapp.com/2012/08/21/merge-or-rebase/
